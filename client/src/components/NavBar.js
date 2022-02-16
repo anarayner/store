@@ -8,6 +8,11 @@ import {useNavigate} from 'react-router-dom';
 const NavBar = observer(() => {
     const navigate = useNavigate()
     const {user} = useContext(Context)
+    const logOut = ()=> {
+        user.setUser({})
+        user.setIsAuth(false)
+    }
+    
     return (
         <Navbar bg="dark" variant="dark">
             <Container>
@@ -21,9 +26,8 @@ const NavBar = observer(() => {
                             Admin panel
                         </Button>
                         <Button
-                            onClick={()=> navigate(LOGIN_ROUTE)}
+                            onClick={()=> logOut()}
                             // onClick={()=> user.SetIsAuth(false)}>
-
                             className="mx-3"
                             variant="outline-light">
                             Sing out
@@ -33,7 +37,7 @@ const NavBar = observer(() => {
                     <Nav className="py-1">
                         <Button variant="outline-light"
                                 className="mx-3"
-                                onClick={()=> user.SetIsAuth(true)}>Sing in</Button>
+                                onClick={()=> navigate(LOGIN_ROUTE)}>Sing in</Button>
                     </Nav>
                 }
             </Container>

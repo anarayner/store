@@ -2,12 +2,7 @@ import {makeAutoObservable} from 'mobx';
 
 export default class DeviceStore{
     constructor(){
-        this._types = [
-            {id:1 , name: 'Phones'},
-            {id:2 , name: 'Headphones'},
-            {id:3 , name: 'Laptops'},
-            {id:4 , name: 'Keyboards'}
-        ];
+        this._types = [];
         this._brands = [
             {id:1 , name: 'Apple'},
             {id:2 , name: 'Apple2'},
@@ -31,13 +26,13 @@ export default class DeviceStore{
     }
 
 //    создадим функции которые буду изменять состояние
-    SetTypes(types){
+    setTypes(types){
         this._types = types
     }
-    SetBrands(brands){
+    setBrands(brands){
         this._brands = brands
     }
-    SetDevices(devices){
+    setDevices(devices){
         this._devices = devices
     }
     setSelectedType(type){
